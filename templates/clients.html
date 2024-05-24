@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>Clients</h1>
+    <hr/>
+    {% for j in clients %}
+        
+        <h2>{{ j.first_name }} {{ j.last_name }} {{ j.second_name }}</h2>
+        <p>Address:{{ j.address }}</p>
+        <p>Phone:{{ j.phone }}</p>
+        
+        <hr/>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,280 @@
+2024-05-24 00:52:37,320 INFO /home/sicrx/PycharmProjects/lab5/TravelAgent/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/sicrx/PycharmProjects/lab5/TravelAgent/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/sicrx/PycharmProjects/lab5/TravelAgent/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/sicrx/PycharmProjects/lab5/TravelAgent/models.py changed, reloading.
+ERROR:django.request:Internal Server Error: /admin/TravelAgent/article/
+Traceback (most recent call last):
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/db/backends/sqlite3/base.py", line 329, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: no such column: TravelAgent_article.img_url
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 716, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/views/decorators/cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/contrib/admin/sites.py", line 240, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/utils/decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/utils/decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/utils/decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/contrib/admin/options.py", line 2124, in changelist_view
+    "selection_note": _("0 of %(cnt)s selected") % {"cnt": len(cl.result_list)},
+                                                           ^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/db/models/query.py", line 382, in __len__
+    self._fetch_all()
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/db/models/query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/db/models/query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/db/models/sql/compiler.py", line 1562, in execute_sql
+    cursor.execute(sql, params)
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/db/backends/sqlite3/base.py", line 329, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.OperationalError: no such column: TravelAgent_article.img_url
+WARNING:django.request:Not Found: /main/media/HomeBck.jpg
+WARNING:django.request:Not Found: /main/media/HomeBck.jpg
+WARNING:django.request:Not Found: /home/sicrx/PycharmProjects/lab5/media/HomeBck.jpg
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /favicon.ico
+INFO:django.utils.autoreload:/home/sicrx/PycharmProjects/lab5/TravelAgent/models.py changed, reloading.
+INFO:django.utils.autoreload:/home/sicrx/PycharmProjects/lab5/TravelAgent/models.py changed, reloading.
+INFO:django.utils.autoreload:/home/sicrx/PycharmProjects/lab5/TravelAgent/models.py changed, reloading.
+INFO:django.utils.autoreload:/home/sicrx/PycharmProjects/lab5/TravelAgent/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/sicrx/PycharmProjects/lab5/TravelAgent/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/sicrx/PycharmProjects/lab5/TravelAgent/admin.py changed, reloading.
+WARNING:django.request:Not Found: /favicon.ico
+ERROR:django.request:Internal Server Error: /edit/
+Traceback (most recent call last):
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/template/base.py", line 502, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: 'get_current_timezone'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/TravelAgent/views.py", line 254, in edit
+    return render(request, 'edit.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/template/engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/template/engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/template/base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/template/base.py", line 510, in parse
+    raise self.error(token, e)
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/template/base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/template/loader_tags.py", line 295, in do_extends
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/template/base.py", line 510, in parse
+    raise self.error(token, e)
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/template/base.py", line 508, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/template/loader_tags.py", line 234, in do_block
+    nodelist = parser.parse(("endblock",))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/template/base.py", line 504, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/template/base.py", line 555, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 53: 'get_current_timezone', expected 'endblock'. Did you forget to register or load this tag?
+INFO:django.utils.autoreload:/home/sicrx/PycharmProjects/lab5/TravelAgent/views.py changed, reloading.
+WARNING:django.request:Not Found: /favicon.ico
+INFO:django.utils.autoreload:/home/sicrx/PycharmProjects/lab5/TravelAgent/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/sicrx/PycharmProjects/lab5/TravelAgent/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/sicrx/PycharmProjects/lab5/TravelAgent/views.py changed, reloading.
+ERROR:django.request:Internal Server Error: /edit/
+Traceback (most recent call last):
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/TravelAgent/views.py", line 253, in edit
+    'current_date':datetime.strptime( datetime.now(),'%d/%m/%Y'),
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: strptime() argument 1 must be str, not datetime.datetime
+INFO:django.utils.autoreload:/home/sicrx/PycharmProjects/lab5/TravelAgent/views.py changed, reloading.
+ERROR:django.request:Internal Server Error: /edit/
+Traceback (most recent call last):
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/TravelAgent/views.py", line 253, in edit
+    'current_date':datetime.strptime( str(datetime.now()),'%d/%m/%Y'),
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib64/python3.12/_strptime.py", line 554, in _strptime_datetime
+    tt, fraction, gmtoff_fraction = _strptime(data_string, format)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib64/python3.12/_strptime.py", line 333, in _strptime
+    raise ValueError("time data %r does not match format %r" %
+ValueError: time data '2024-05-24 01:37:34.935463' does not match format '%d/%m/%Y'
+INFO:django.utils.autoreload:/home/sicrx/PycharmProjects/lab5/TravelAgent/views.py changed, reloading.
+ERROR:django.request:Internal Server Error: /edit/
+Traceback (most recent call last):
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/TravelAgent/views.py", line 253, in edit
+    'current_date':timezone.now()
+                   ^^^^^^^^^^^^
+AttributeError: type object 'datetime.timezone' has no attribute 'now'
+ERROR:django.request:Internal Server Error: /edit/
+Traceback (most recent call last):
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/TravelAgent/views.py", line 253, in edit
+    'current_date':timezone.now()
+                   ^^^^^^^^^^^^
+AttributeError: type object 'datetime.timezone' has no attribute 'now'
+ERROR:django.request:Internal Server Error: /edit/
+Traceback (most recent call last):
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/TravelAgent/views.py", line 253, in edit
+    'current_date':timezone.now()
+                   ^^^^^^^^^^^^
+AttributeError: type object 'datetime.timezone' has no attribute 'now'
+INFO:django.utils.autoreload:/home/sicrx/PycharmProjects/lab5/TravelAgent/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/sicrx/PycharmProjects/lab5/TravelAgent/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/sicrx/PycharmProjects/lab5/TravelAgent/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/sicrx/PycharmProjects/lab5/TravelAgent/models.py changed, reloading.
+INFO:django.utils.autoreload:/home/sicrx/PycharmProjects/lab5/TravelAgent/models.py changed, reloading.
+INFO:django.utils.autoreload:/home/sicrx/PycharmProjects/lab5/TravelAgent/admin.py changed, reloading.
+INFO:django.utils.autoreload:/home/sicrx/PycharmProjects/lab5/TravelAgent/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/sicrx/PycharmProjects/lab5/TravelAgent/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/sicrx/PycharmProjects/lab5/TravelAgent/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/sicrx/PycharmProjects/lab5/TravelAgent/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/sicrx/PycharmProjects/lab5/TravelAgent/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/sicrx/PycharmProjects/lab5/TravelAgent/views.py changed, reloading.
+ERROR:django.request:Internal Server Error: /stats/
+Traceback (most recent call last):
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/TravelAgent/views.py", line 233, in stats
+    buf = io.BytesIO()
+          ^^^^^^^^^^
+  File "/usr/lib64/python3.12/typing.py", line 3287, in __getattribute__
+    return super().__getattribute__(name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'typing.io' has no attribute 'BytesIO'
+INFO:django.utils.autoreload:/home/sicrx/PycharmProjects/lab5/TravelAgent/views.py changed, reloading.
+ERROR:django.request:Internal Server Error: /stats/
+Traceback (most recent call last):
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/.venv/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sicrx/PycharmProjects/lab5/TravelAgent/views.py", line 232, in stats
+    buf = io.BytesIO()
+          ^^
+NameError: name 'io' is not defined. Did you forget to import 'io'
+INFO:django.utils.autoreload:/home/sicrx/PycharmProjects/lab5/TravelAgent/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/sicrx/PycharmProjects/lab5/TravelAgent/views.py changed, reloading.
+INFO:django.utils.autoreload:/home/sicrx/PycharmProjects/lab5/TravelAgent/views.py changed, reloading.
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /favicon.ico
+WARNING:django.request:Not Found: /favicon.ico

@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>Contacts</h1>
+    {% for emp in emps %}
+        <h1>{{ emp.position }}</h1>
+        <p>{{ emp.email }}</p>
+        <p>{{ emp.phone }}</p>
+        <img src="{{ emp.img_url }}">
+        <hr/>
+    {% endfor %}
+{% endblock %}

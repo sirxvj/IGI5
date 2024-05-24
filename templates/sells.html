@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>Sells</h1>
+    <hr/>
+    {% for j in sells %}
+         <h1>{{ j.tour.name }}</h1>
+        <p>Ticket amount:{{ j.amount }}</p>
+        <p>Bought at:{{ j.createdAt }}</p>
+        <p>Departure at: {{ j.startDate }}</p>
+        <p>Final price: {{ j.price }}$</p>
+        <hr/>
+    {% endfor %}
+{% endblock %}

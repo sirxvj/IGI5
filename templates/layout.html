@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% block nav %}
+    <a href="/login" >Logout</a>
+    <ul>
+    <li><a href="/main">Главная</a></li>
+        <li><a href="/tours">Туры</a></li>
+        {% if request.COOKIES.role == "client" %}
+        <li><a href="/orders">Покупки</a></li>
+        {% endif %}
+        {% if request.COOKIES.role == "employee" %}
+        <li><a href="/sells">Продажи</a></li>
+        <li><a href="/clients">Клиенты</a></li>
+        {% endif %}
+     <li><a href="/about">О компании</a></li>
+     <li><a href="/news">Новости</a></li>
+     <li><a href="/dick">Словарь терминов и понятий</a></li>
+     <li><a href="/contacts">Контакты</a></li>
+    <li> <a href="/policy">Политика конфиденциальности</a></li>
+     <li><a href="/job">Вакансии</a></li>
+     <li><a href="/reviews">Отзывы</a></li>
+     <li><a href="/promo">Промокоды и купоны</a></li>
+     <li><a href="/stats">Статистика</a></li>
+    {% if request.COOKIES.role != "none" %}
+        <li><a href="/edit">Редактировать профиль</a></li>
+    {% endif %}
+    </ul>
+    
+{% endblock %}
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

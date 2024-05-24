@@ -1,0 +1,67 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>Statistic</h1>
+    <hr/>
+    <p>Avg client age:{{ cl_avg }}</p>
+    <p>Median client age:{{ cl_median }}</p>
+    <p>Most popular tour:{{ most_pop }}</p>
+    <p>Most profit tour:{{ max_profit }}</p>
+    <p>Average tour profit: {{ sl_avg }}</p>
+    <p>Median tour profit: {{ sl_median }}</p>
+    <p>Moda tour profit: {{ sl_mod }}</p>
+    <p>График</p>
+<canvas id="myChart" width="400" height="400"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Данные для графика
+    const data = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            datasets: [{
+                data: [120, 190, 30, 55, 62, 73, 85, 92, 68, 105, 140, 160],
+                backgroundColor: [
+                    '#FFC0CB',
+                    '#ADD8E6',
+                    '#FFD700',
+                    '#90EE90',
+                    '#C0C0C0',
+                    '#FFA07A',
+                    '#FF69B4',
+                    '#87CEEB',
+                    '#DAA520',
+                    '#32CD32',
+                    '#708090',
+                    '#FA8072'
+                ],
+                borderColor: [
+                    '#FF69B4',
+                    '#87CEEB',
+                    '#DAA520',
+                    '#32CD32',
+                    '#708090',
+                    '#FA8072',
+                    '#FFC0CB',
+                    '#ADD8E6',
+                    '#FFD700',
+                    '#90EE90',
+                    '#C0C0C0',
+                    '#FFA07A'
+                ],
+                borderWidth: 1
+            }]
+        };
+
+    // Конфигурация графика
+    const config = {
+        type: 'bar',
+        data: data,
+        options: {}
+    };
+
+    // Отрисовка графика
+    var myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+</script>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>Jobs</h1>
+    <hr/>
+    {% for j in jobs %}
+        <h1>{{ j.title }}</h1>
+        <p>{{ j.salary }}$</p>
+        <p>{{ j.date }}</p>
+        <h5>Job Description:</h5>
+        <p>{{ j.description }}</p>
+        <hr/>
+    {% endfor %}
+{% endblock %}

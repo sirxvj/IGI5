@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>Reviews</h1>
+    <hr/>
+    {% for j in reviews %}
+        <h1>{{ j.title }}</h1>
+        <p>{{ j.created_at }}$</p>
+        <p>{{ j.stars }}/5</p>
+        <h5>{{ j.user.first_name }} {{ j.user.last_name }}</h5>
+        <hr/>
+    {% endfor %}
+{% endblock %}

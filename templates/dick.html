@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    {% for q in questions %}
+        <h1>{{ q.text }}</h1>
+        <p>{{ q.date }}</p>
+        <hr/>
+        {% for a in answers %}
+            {% if a.question == q %}
+                <h3>{{ a.text }}</h3>
+                <p>{{ a.date }}</p>
+            {% endif %}
+            {% endfor %}
+     {% endfor %}
+
+{% endblock %}

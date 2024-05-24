@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>Orders</h1>
+    <hr/>
+    {% for o in orders %}
+        <h1>{{ o.tour.name }}</h1>
+        <p>Ticket amount:{{ o.amount }}</p>
+        <p>Bought at:{{ o.createdAt }}</p>
+        <p>Departure at: {{ o.startDate }}</p>
+        <p>Final price: {{ o.price }}$</p>
+    {% endfor %}
+{% endblock %}

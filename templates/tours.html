@@ -1,0 +1,73 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <h1>Tours</h1>
+    <h3>Filter:</h3>
+    <form method="POST" action="{% url 'tours' %}">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label>Duration
+                <select class="form-control" name="duration">
+                    <option value="0">Any</option>
+                    <option value="1">One week</option>
+                    <option value="2">Two weeks</option>
+                    <option value="4">Four weeks</option>
+                </select>
+            </label>
+        </div>
+        <div class="form-group">
+        <label>Counry
+            <select class="form-control" name="country">
+                <option value="0">Any</option>
+                {% for c in countries %}
+                    <option value="{{ c.name }}">{{ c.name }}</option>
+                {% endfor %}
+            </select>
+        </label>
+        </div>
+        <div class="form-group">
+        <label>
+            Price less than
+            <input class="form-control" name="less" type="number">
+        </label>
+            </div>
+    <div class="form-group">
+            <label>Hotel Stars
+                <select class="form-control" name="stars">
+                    <option value="0">Any</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg">Apply filter</button>
+        
+    </form>
+
+    <hr/>
+    {% for j in tours %}
+        
+         <form method="POST" action="{% url 'orders' %}">
+         {% csrf_token %}
+            <h1>{{ j.name }}</h1>
+            <p>{{ j.country.name }}</p>
+            <p>Price: {{ j.get_price }}$</p>
+            <p>Weeks: {{ j.duration }} </p>
+            <h3>Hotel:</h3>
+            <p>Name:{{ j.hotel.name }}</p>
+            <p>Stars: {{ j.hotel.stars }}</p>
+             {% if role == 'client' %}
+                 <input type="date" name="date">
+                 <input class="form-control" type="hidden" name="name" value="{{ j.name }}">
+                 <input class="form-control" type="hidden" name="price" value="{{ j.get_price }}">
+                 <input class="form-control" type="number" name="amount" placeholder="0">
+                <button type="submit">Buy</button>
+            {% endif %}
+         </form>
+        <hr/>
+    {% endfor %}
+{% endblock %}
