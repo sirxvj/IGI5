@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h1>Cart</h1>
+{% for j in cart_items %}
+
+    <form method="POST" action="{% url 'orders' %}">
+        {% csrf_token %}
+        <h1>{{ j.tour.name }}</h1>
+        <p>{{ j.tour.country.name }}</p>
+       <p>Price: {{ j.tour.get_price }}$</p>
+       <p>Weeks: {{ j.tour.duration }} </p>
+       <h3>Hotel:</h3>
+       <p>Name:{{ j.tour.hotel.name }}</p>
+      <p>Stars: {{ j.tour.hotel.stars }}</p>
+      <p>Role {{role}}</p>
+       <p>Ticket amount:{{ j.amount }}</p>
+      <p>Final price: {{ j.price }}$</p>
+      {% if role == 'client' %}
+        <input type="date" name="date" value="{{ j.startDate}}">
+        <input class="form-control" type="hidden" name="delete" value="False">
+        <input class="form-control" type="hidden" name="name" value="{{ j.tour.name }}">
+        <input class="form-control" type="hidden" name="price" value="{{ j.tour.get_price }}">
+        <input class="form-control" type="number" name="amount" value="{{ j.amount }}">
+        <button type="submit">Buy</button>
+        {% endif %}
+</form>
+    <form method="POST" action="{% url 'cart' %}">
+        {% csrf_token %}
+        <input class="form-control" type="hidden" name="name" value="{{ j.tour.name }}">
+        <input class="form-control" type="hidden" name="delete" value="True">
+        <input class="form-control" type="hidden" name="price" value="{{ j.tour.get_price }}">
+        <input class="form-control" type="number" name="amount" value="{{ j.amount }}">
+        <button type="submit">Delete</button>
+    </form>
+<hr/>
+
+{% endfor %}
+{% endblock %}

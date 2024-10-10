@@ -5,7 +5,7 @@
                   {% csrf_token %}
                   <div class="form-group">
                       <label class="text-primary text-dark font-weight-bold">Enter phone</label>
-                      <input type="text" class="form-control" name="phone" placeholder="Enter phone">
+                      <input type="tel" class="form-control" name="phone" placeholder="Enter phone"  pattern="[\+]\d{12}" minlength="13" maxlength="18" required>
                   </div>
 
                   <br>

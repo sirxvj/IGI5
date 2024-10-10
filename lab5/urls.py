@@ -29,6 +29,7 @@ urlpatterns = [
     path('main/',views.main, name='main'),
     path('about/',views.about,name='about'),
     path('news/', views.news, name='news'),
+    path('news_details/<title>/', views.news_details, name='news_details'),
     path('dick/', views.dick, name='dick'),
     path('contacts/', views.contacts, name='contacts'),
     path('policy/', views.policy, name='policy'),
@@ -39,7 +40,8 @@ urlpatterns = [
     path('tours/<slug:slug>/', views.tours, name='tours_search'),
 
     path('orders/',views.orders,name='orders'),
-
+    path('cart/', views.cart, name='cart'),
+    path('details/<name>/', views.details, name='tour_details'),
     path('sells/',views.sells,name='sells'),
     path('clients/',views.clients,name='clients'),
 

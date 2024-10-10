@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<section>
+<form method="POST" action="{% url 'cart' %}">
+    {% csrf_token %}
+    <h1>{{ tour.name }}</h1>
+    <p>{{ tour.country.name }}</p>
+    <p>Price: {{ tour.get_price }}$</p>
+    <p>Weeks: {{ tour.duration }} </p>
+    <h3>Hotel:</h3>
+    <p>Name:{{ tour.hotel.name }}</p>
+    <p>Stars: {{ tour.hotel.stars }}</p>
+    <p>Role {{role}}</p>
+    {% if role == 'client' %}
+    <input type="date" name="date">
+    <input class="form-control" type="hidden" name="delete" value="False">
+    <input class="form-control" type="hidden" name="name" value="{{ tour.name }}">
+    <input class="form-control" type="hidden" name="price" value="{{ tour.get_price }}">
+    <input class="form-control" type="number" name="amount" placeholder="0">
+    <button type="submit">Add to cart</button>
+    {% endif %}
+</form>
+</section>
+{% endblock %}

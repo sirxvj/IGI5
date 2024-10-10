@@ -60,6 +60,7 @@
             <h3>Hotel:</h3>
             <p>Name:{{ j.hotel.name }}</p>
             <p>Stars: {{ j.hotel.stars }}</p>
+             <p>Role {{role}}</p>
              {% if role == 'client' %}
                  <input type="date" name="date">
                  <input class="form-control" type="hidden" name="name" value="{{ j.name }}">

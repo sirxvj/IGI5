@@ -1,12 +1,270 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <h1>{{ article.title }}</h1>
-    <p>{{ article.created_at }}</p>
-    <p>{{ article.content }}</p>
-    <img src="{{ article.img_url }}">
-    <hr/>
-    <h1>Fact:</h1>
-    <p>{{ fact }}</p>
-    <h5>Your ip: {{ ip }}</h5>
+{% csrf_token %}
+<hr/>
+<article>
+    <h1>Логотип компании</h1>
+    <img width="200px"
+         src="https://lh5.googleusercontent.com/FXUvmb1Ph0hZdiaNWOYHj5J_y54pj9d-5sjm247jxdmZ74EJ8PeJTCztyzxNyaqbzLxNPjn68JIqjfYPXisYAFKYZt-n0drUr79JjXv71Ugd-j6H_5IIdMbCIWP6NcRYBazVZEMV">
+</article>
+<section>
+
+
+<div class="container">
+    <div class="scene scene1">
+        <div class="airplane">✈️ Turagenstvo</div>
+    </div>
+    <div class="scene scene2">
+        <div class="ship">🚢 Turagenstvo</div>
+    </div>
+    <div class="scene scene3">
+        <div class="car">🚗 Turagenstvo</div>
+    </div>
+</div>
+    <script>
+    const scenes = document.querySelectorAll('.scene');
+    let currentScene = 0;
+
+    function showScene(index) {
+        scenes[index].style.display = 'flex';
+        setTimeout(() => {
+            scenes[index].style.display = 'none';
+            currentScene++;
+            if (currentScene < scenes.length) {
+                showScene(currentScene);
+            }
+        }, 4000); // Время анимации
+    }
+
+    showScene(currentScene);
+</script>
+</section>
+<article>
+    <h3>Рекламные баннеры</h3>
+    <img width="500px" src="https://ir-3.ozone.ru/s3/multimedia-5/c1000/6712082753.jpg">
+    <img height="500px"
+         src="https://smmplanner.com/blog/content/images/2024/02/5-primer-bannera-s-horoshej-ierarhiej.jpg">
+</article>
+<h1>Hot tours</h1>
+{% for j in tours %}
+{% csrf_token %}
+<article>
+    <a href="/details/{{ j.name }}">
+        <h1>{{ j.name }}</h1>
+        <p>{{ j.country.name }}</p>
+        <p>Price: {{ j.get_price }}$</p>
+        <p>Weeks: {{ j.duration }} </p>
+        <h3>Hotel:</h3>
+        <p>Name:{{ j.hotel.name }}</p>
+        <p>Stars: {{ j.hotel.stars }}</p>
+    </a>
+</article>
+<hr/>
+{% endfor %}
+<h1>Our investors and partners</h1>
+{% for i in partners %}
+<h2><a href="{{ i.company_url }}">{{ i.name }}</a></h2>
+<img src="{{ i.logo_url }}" width="100px">
+{% endfor %}
+<hr>
+<h1>{{ article.title }}</h1>
+<p>{{ article.created_at }}</p>
+<p>{{ article.content }}</p>
+<img src="{{ article.img_url }}">
+<hr/>
+<section>
+    <h2>Листинг</h2>
+    <pre><code id="code example">
+def hello_world():
+    print("Hello, worldd!")
+    </code></pre>
+</section>
+<input type="color">
+<section>
+    <p>One more example of <strong>semantic</strong> selection</p>
+    <p>One more example of <small>semantic</small> selection</p>
+    <p>One more example of <i>semantic</i> selection</p>
+    <p>One more example of <em>semantic</em> selection</p>
+    <p>One more example of <s>semantic</s> selection</p>
+    <p>One more example of <u>semantic</u> selection</p>
+    <p>One more example of <sub>semantic</sub> selection</p>
+</section>
+<p dir="rtl">global attribute</p>
+<p>Сайт <abbr title="HyperText Markup Language">HTML</abbr> является основным языком разметки для создания веб-страниц.
+</p>
+<p><dfn>Aboba</dfn> — это lorem ipsum dolorem.</p>
+<blockquote cite="https://dzen.ru/a/ZRFaGN_gKhX6xTWW">
+    «Легче попой съесть арбуз, чем окончить этот вуз»
+</blockquote>
+<p>Дата и время:
+    <time datetime="2024-09-17T14:30">17 сентября 2024, 14:30</time>
+</p>
+<pre>
+    Lorem ipsum dolor sit amet,
+    consectetur adipiscing elit.
+    Aenean ullamcorper,
+    sapien sit amet placerat hendrerit,
+    dui neque pretium mauris,
+    et rutrum odio magna et tortor.
+    Suspendisse laoreet scelerisque feugiat.
+    Etiam scelerisque malesuada dolor eu semper.
+    Mauris at hendrerit eros.
+    Vestibulum tempus eget elit vitae semper.
+</pre>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    <wbr>
+    Aenean ullamcorper, sapien sit
+    <wbr>
+    amet placerat hendrerit, dui neque pretium mauris,
+    <wbr>
+    et rutrum odio magna et tortor.
+    <wbr>
+    Suspendisse laoreet scelerisque feugiat. Etiam
+    <wbr>
+    scelerisque malesuada dolor eu semper. Mauris at hendrerit eros<wbr>jestibulum
+    tempus eget elit vitae semper. Morbi porttitor maximus nisl<wbr>sed
+    ultricies nibh cursus in. Nulla nec turpis vel neque dignissim elementum a quis nibh. Suspendisse mattis
+    <wbr>
+    ante ut lobortis tincidunt. Suspendisse a bibendum est,
+    <wbr>
+    ultrices lobortis orci. Aliquam interdum euismod lectus ac ultrices.
+</p>
+
+<a href="https://google.com/" target="_blank">Отдельная вкладка</a>
+{% load static %}
+<a href="{% static 'йцввя.pdf' %}" download>Скачивание</a>
+<a href="https://google.com">Просто переход</a>
+<a href="mailto:andrei.bekman@ifortex.com">Написать на e-mail</a>
+<a href="tel:+375292872365">Позвонить на +375292872365</a>
+<a href="#code example">Перейти к верстке кода</a>
+<a href="../static/йцввя.pdf#page=2">Перейти к 2 странице в PDF</a>
+<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ#t=2m30s">Начать видео с 2:30</a>
+<section>
+    <ul>
+        <li>Первый элемент</li>
+        <li>Второй элемент</li>
+        <li>Третий элемент</li>
+    </ul>
+    <ol type="A">
+        <li>Первый элемент</li>
+        <li>Второй элемент</li>
+        <li>Третий элемент</li>
+    </ol>
+    <ol type="a">
+        <li>Первый элемент</li>
+        <li>Второй элемент</li>
+        <li>Третий элемент</li>
+    </ol>
+    <ol type="1">
+        <li>Первый элемент</li>
+        <li>Второй элемент</li>
+        <li>Третий элемент</li>
+    </ol>
+    <ol type="i">
+        <li>Первый элемент</li>
+        <li>Второй элемент</li>
+        <li>Третий элемент</li>
+    </ol>
+    <ol type="I">
+        <li>Первый элемент</li>
+        <li>Второй элемент</li>
+        <li>Третий элемент</li>
+    </ol>
+</section>
+<figure>
+    {% load static %}
+    <img src="{% static 'aboba.png' %}" alt="Пример изображения" width="300" height="200">
+    <figcaption>Подпись к изображению: Пример изображения</figcaption>
+</figure>
+
+<nav>
+    <ul>
+        <li><a href="/home">1</a></li>
+        <li><a href="/about">2</a></li>
+        <li><a href="/news">3</a></li>
+        <li><a href="/dick">4</a></li>
+    </ul>
+</nav>
+
+<form>
+    <label for="options">Выберите опцию:</label>
+    <select id="options" name="options" required>
+        <option value="option1">Опция 1</option>
+        <option value="option2">Опция 2</option>
+        <option value="option3">Опция 3</option>
+        <option value="option4">Опция 4</option>
+        <optgroup label="Группа 1">
+            <option>Опция 1.1</option>
+        </optgroup>
+        <optgroup label="Группа 2">
+            <option>Опция 2.1</option>
+            <option>Опция 2.2</option>
+        </optgroup>
+        <optgroup label="Группа 3" disabled>
+            <option>Опция 3.1</option>
+            <option>Опция 3.2</option>
+            <option>Опция 3.3</option>
+        </optgroup>
+    </select>
+</form>
+<p>Адаптивное изображение</p>
+<img src="{%static 'aboba.png' %}"
+     alt="Пример изображения"
+     width="50%"
+     height="auto">
+
+<p>Пример таблицы</p>
+<table border="1" cellpadding="10" cellspacing="0">
+    <thead>
+    <tr>
+        <th id="aboba" width="40">Заголовок 1</th>
+        <th colspan="4">Заголовок 2</th>
+        <th>Заголовок 3</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>a</td>
+        <td>1</td>
+        <td>b</td>
+        <td>2</td>
+        <td>c</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td headers="aboba">d</td>
+        <td>4</td>
+        <td>e</td>
+        <td>5</td>
+        <td>f</td>
+        <td>6</td>
+    </tr>
+    <tr height="100" bgcolor="red" bordercolor="red">
+        <td></td>
+        <td></td>
+        <td colspan="2" rowspan="1" align="center">Объединенная ячейка</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+<h1>Fact:</h1>
+<p>{{ fact }}</p>
+<h5>Your ip: {{ ip }}</h5>
 {% endblock %}

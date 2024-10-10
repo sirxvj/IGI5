@@ -12,7 +12,8 @@ from django.shortcuts import render, redirect
 from matplotlib import pyplot as plt
 
 from lab5.settings import DEBUG
-from .models import User, Article, Question, Answer, Job, Review, Promo, Tour, Country, Hotel, Order, Employee
+from .models import User, Article, Question, Answer, Job, Review, Promo, Tour, Country, Hotel, Order, Employee, Partner, \
+    CartItem, AboutCompany, CompanyHistory
 
 logging.basicConfig(level=logging.INFO, filename='logging.log', filemode='a')
 
@@ -70,20 +71,51 @@ def main(request):
     response = requests.get(url)
     response2 = requests.get(url2)
 
+    role = 'none'
+    userPhone = request.COOKIES.get('phone')
+    user = User.objects.filter(phone=userPhone).first()
+    if userPhone:
+        role = user.type
+
     article = Article.objects.order_by("created_at").first()
-    context = {'article': article, 'fact': response.json()["fact"], 'ip': response2.json()["ip"]}
+    tours = Tour.objects.all()
+    countries = Country.objects.all()
+    hotels = Hotel.objects.all()
+    partners = Partner.objects.all()
+    context = {'article': article, 'fact': response.json()["fact"], 'ip': response2.json()["ip"],'tours': tours, 'countries': countries, 'hotels': hotels, 'role': role, 'partners': partners}
     return render(request, 'main.html', context)
 
 
 def about(request):
-    return render(request, 'about.html')
+    about = AboutCompany.objects.first()
+    histories = CompanyHistory.objects.all()
+    context = {'about': about, 'histories': histories}
+    return render(request, 'about.html', context)
 
+def details(request, name):
+    userPhone = request.COOKIES.get('phone')
+    # name = request.GET().get('name')
+    role = 'none'
+    countries = Country.objects.all()
+    hotels = Hotel.objects.all()
+    user = User.objects.filter(phone=userPhone).first()
+    if userPhone:
+        role = user.type
+
+    tour = Tour.objects.filter(name=name).first()
+
+    context = {'tour': tour, 'countries': countries, 'hotels': hotels, 'role': role, 'name': name}
+    return render(request, 'details.html', context)
 
 def news(request):
     articles = Article.objects.order_by("created_at").all()
     context = {'articles': articles}
     return render(request, 'news.html', context)
 
+def news_details(request, title):
+    article = Article.objects.filter(title=title).first()
+    context = {'article': article}
+    return render(request, 'news_details.html', context)
 
 def dick(request):
     questions = Question.objects.order_by("date").all()
@@ -109,6 +141,14 @@ def job(request):
 
 
 def reviews(request):
+    if request.method == "POST":
+        userPhone = request.COOKIES.get('phone')
+        user = User.objects.filter(phone=userPhone).first()
+        Review.objects.create(
+            title=request.POST["title"],
+            stars=request.POST["stars"],
+            user=user
+        )
     reviews = Review.objects.order_by("created_at").all()
     context = {'reviews': reviews}
     return render(request, 'reviews.html', context)
@@ -151,6 +191,30 @@ def tours(request):
     context = {'tours': tours, 'countries': countries, 'hotels': hotels, 'role': role}
     return render(request, 'tours.html', context)
 
+def cart(request):
+    userPhone = request.COOKIES.get('phone')
+    countries = Country.objects.all()
+    hotels = Hotel.objects.all()
+    user = User.objects.filter(phone=userPhone).first()
+    if userPhone:
+        role = user.type
+    if request.method == 'POST' and request.POST['delete'] == 'True':
+        item_to_delete = CartItem.objects.filter(tour__name = request.POST['name']).filter(user=user).first()
+        item_to_delete.delete()
+    elif request.method == 'POST':
+        name = request.POST['name']
+        amount = request.POST['amount']
+        tour = Tour.objects.filter(name=name).first()
+        CartItem.objects.create(
+            amount=amount,
+            price=int(request.POST['price']) * int(amount),
+            startDate=datetime.strptime(request.POST['date'], "%Y-%m-%d"),
+            user=user,
+            tour=tour,
+        )
+    cart_items = CartItem.objects.filter(user=user).all()
+    context = {'cart_items': cart_items , 'role': role}
+    return render(request, 'cart.html', context)
 
 def orders(request):
     userPhone = request.COOKIES.get('phone')

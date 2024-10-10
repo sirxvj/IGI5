@@ -2,10 +2,14 @@
 
 {% block content %}
     {% for a in articles %}
-        <h1>{{ a.title }}</h1>
+<section itemscope itemtype="https://schema.org/Article">
+        <h1 itemprop="name">{{ a.title }}</h1>
         <p>{{ a.created_at }}</p>
-        <p>{{ a.content }}</p>
-        <img src="{{ a.img_url }}">
+        <p>{{ a.content | slice:":100" }}</p>
+        <img itemprop="photo" src="{{ a.img_url }}">
+        <a href="/news_details/{{a.title}}/">Read more</a>
         <hr>
+    </section>
+<main></main>
     {% endfor %}
 {% endblock %}

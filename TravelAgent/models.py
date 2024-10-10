@@ -150,3 +150,27 @@ class Employee(models.Model):
     img_url = models.CharField(max_length=200,default='')
     email = models.EmailField(blank=True)
 
+class Partner(models.Model):
+    name = models.CharField(max_length=50)
+    logo_url = models.CharField(max_length=500)
+    company_url = models.CharField(max_length=500)
+
+class CartItem(models.Model):
+    id = models.AutoField(primary_key=True)
+    amount = models.PositiveSmallIntegerField(default=1)
+    price = models.FloatField()
+    startDate = models.DateField()
+
+    user = models.ForeignKey(User, related_name='cart_item', on_delete=models.CASCADE)
+    tour = models.ForeignKey(Tour, related_name='cart_item', on_delete=models.CASCADE)
+
+class AboutCompany(models.Model):
+    company_info = models.CharField(max_length=500)
+    video_url = models.CharField(max_length=500)
+    logo_url = models.CharField(max_length=500)
+    email = models.CharField(max_length=50)
+    certificate = models.CharField(max_length=1000)
+
+class CompanyHistory(models.Model):
+    year = models.IntegerField()
+    info = models.CharField(max_length=500)

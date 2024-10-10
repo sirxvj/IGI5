@@ -1,10 +1,23 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<h1>lorem ipsum</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim aeque doleamus animo, cum corpore dolemus, fieri tamen permagna accessio potest, si aliquod aeternum et infinitum impendere malum nobis opinemur. Quod idem licet transferre in voluptatem, ut postea variari voluptas distinguique possit, augeri amplificarique non possit. At etiam Athenis, ut e patre audiebam.
-
-Ullus investigandi veri, nisi inveneris, et quaerendi defatigatio turpis est, cum esset accusata et vituperata ab Hortensio. Qui liber cum et mortem contemnit, qua qui est imbutus quietus esse numquam.
-
-Ullus investigandi veri, nisi inveneris, et quaerendi defatigatio turpis est, cum esset accusata et vituperata ab Hortensio. Qui liber cum et mortem contemnit, qua qui est imbutus quietus esse numquam potest. Praeterea bona praeterita grata recordatione renovata delectant. Est autem situm in nobis ut et voluptates et dolores nasci.</p>
+<section>
+    <h1>Travel agency</h1>
+    <p>{{about.company_info}}</p>
+    <img src="{{about.logo_url}}" width="100px">
+    <br>
+    <iframe width="620" height="315"
+            src="{{about.video_url}}">
+    </iframe>
+    {% for j in histories %}
+    <article>
+        <h3>{{j.year}}</h3>
+        <p>{{j.info}}</p>
+    </article>
+    {% endfor %}
+    <article>
+        <h1>Contact: {{about.email}}</h1>
+        <p>{{about.certificate}}</p>
+    </article>
+</section>
 {% endblock %}

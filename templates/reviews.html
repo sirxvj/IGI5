@@ -2,12 +2,35 @@
 
 {% block content %}
 <h1>Reviews</h1>
+<section>
+<details>
+    <summary>Add review</summary>
+
+   <form method="POST" action="{% url 'reviews' %}" id="review" >
+       {% csrf_token %}
+       <input class="form-control" name="title" type="text"><br>
+    <input type="radio" id="1" name="stars" value="1">
+    <label for="1">1</label><br>
+    <input type="radio" id="2" name="stars" value="2">
+    <label for="2">2</label><br>
+     <input type="radio" id="3" name="stars" value="3">
+    <label for="3">3</label><br>
+       <input type="radio" id="4" name="stars" value="4">
+    <label for="4">4</label><br>
+       <input type="radio" id="5" name="stars" value="5">
+    <label for="5">5</label><br>
+       <input type="submit" value="send">
+</form>
+</details>
     <hr/>
     {% for j in reviews %}
+        <article>
         <h1>{{ j.title }}</h1>
         <p>{{ j.created_at }}$</p>
         <p>{{ j.stars }}/5</p>
         <h5>{{ j.user.first_name }} {{ j.user.last_name }}</h5>
         <hr/>
+            </article>
     {% endfor %}
+    </section>
 {% endblock %}
