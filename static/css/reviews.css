@@ -1,0 +1,61 @@
+/* Общие стили для всех элементов формы */
+form {
+    /* Основной шрифт */
+    font-size: 16px; /* Размер шрифта */
+    color: #333; /* Цвет текста */
+}
+
+/* Стили для текстового поля */
+input[type="text"].form-control {
+    font-family: cursive; 
+    padding: 10px; /* Отступы */
+    border: 1px solid #ccc; /* Граница */
+    border-radius: 4px; /* Скругление углов */
+    width: 100%; /* Ширина на 100% */
+    box-sizing: border-box; /* Учет отступов и границ в ширине */
+}
+
+/* Псевдоклассы для текстового поля при фокусе */
+input[type="text"].form-control:focus {
+    font-family: Georgia, serif;
+    border-color: #66afe9; /* Цвет границы при фокусе */
+    outline: none; /* Убираем стандартное выделение */
+}
+
+/* Стили для радиокнопок */
+input[type="radio"] {
+    margin-right: 5px; /* Отступ справа */
+}
+
+/* Стили для меток радиокнопок */
+label {
+    margin-right: 15px; /* Отступ справа */
+    font-size: 16px; /* Размер шрифта для меток */
+}
+
+/* Стиль для кнопки отправки */
+input[type="submit"] {
+    font-family: cursive;
+    background-color: #007bff; /* Цвет фона */
+    color: white; /* Цвет текста */
+    padding: 10px 15px; /* Отступы */
+    border: none; /* Убираем границу */
+    border-radius: 4px; /* Скругление углов */
+    cursor: pointer; /* Указатель на курсор */
+}
+
+/* Псевдоклассы для кнопки при наведении */
+input[type="submit"]:hover {
+    font-family: system-ui;
+    background-color: #0056b3; /* Темнее при наведении */
+}
+
+/* Псевдоклассы для состояния ошибок */
+input.error {
+    border-color: red; /* Красная граница для ошибки */
+}
+
+/* Псевдоклассы для состояния успешного ввода */
+input.success {
+    border-color: green; /* Зеленая граница для успеха */
+}

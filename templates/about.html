@@ -1,10 +1,13 @@
 {% extends 'layout.html' %}
-
+{% load static %}
+{% block extrahead %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}">
+{% endblock %}
 {% block content %}
-<section>
+
     <h1>Travel agency</h1>
     <p>{{about.company_info}}</p>
-    <img src="{{about.logo_url}}" width="100px">
+    <img class="about-logo" src="{{about.logo_url}}" width="100px">
     <br>
     <iframe width="620" height="315"
             src="{{about.video_url}}">
@@ -15,9 +18,11 @@
         <p>{{j.info}}</p>
     </article>
     {% endfor %}
-    <article>
-        <h1>Contact: {{about.email}}</h1>
-        <p>{{about.certificate}}</p>
-    </article>
-</section>
+
+        <h1 class="creds">Contact: {{about.email}}</h1>
+        <div class="certificate">
+            {{about.certificate | safe}}
+        </div>
+
+
 {% endblock %}

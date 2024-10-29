@@ -1,6 +1,9 @@
 {% extends 'layout.html' %}
 {% load tz %}
-
+{% load static %}
+{% block extrahead %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/edit.css' %}">
+{% endblock %}
 {% block content %}
     <form method="POST" action="{% url 'edit' %}">
                   {% csrf_token %}

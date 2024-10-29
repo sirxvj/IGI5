@@ -1,45 +1,32 @@
 {% extends 'layout.html' %}
-
+{% load static %}
+{% block extrahead %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+{% endblock %}
 {% block content %}
 {% csrf_token %}
 <hr/>
-<article>
+
+<div class="scene">
+    <div class="plane-box">
+        <img class="anim-img man" src="https://png.klev.club/uploads/posts/2024-06/png-klev-club-2h4y-p-chelovek-vo-ves-rost-png-26.png" alt="">
+        <img class="anim-img plane" src="https://www.pngarts.com/files/4/Plane-PNG-Image-Transparent-Background.png" alt="">
+    </div>
+    <div class="ship-box">
+        <img class="anim-img ship-man" src="https://png.klev.club/uploads/posts/2024-06/png-klev-club-2h4y-p-chelovek-vo-ves-rost-png-26.png" alt="">
+        <img class="anim-img ship" src="https://www.pngall.com/wp-content/uploads/2016/04/Ship-PNG-File.png" alt="">
+    </div>
+    <div class="car-box">
+        <img class="anim-img car-man" src="https://png.klev.club/uploads/posts/2024-06/png-klev-club-2h4y-p-chelovek-vo-ves-rost-png-26.png" alt="">
+        <img class="anim-img car" src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-xebv-p-mashina-szadi-png-2.png" alt="">
+    </div>
+</div>
+
+<article class="company-logo">
     <h1>Логотип компании</h1>
     <img width="200px"
          src="https://lh5.googleusercontent.com/FXUvmb1Ph0hZdiaNWOYHj5J_y54pj9d-5sjm247jxdmZ74EJ8PeJTCztyzxNyaqbzLxNPjn68JIqjfYPXisYAFKYZt-n0drUr79JjXv71Ugd-j6H_5IIdMbCIWP6NcRYBazVZEMV">
 </article>
-<section>
-
-
-<div class="container">
-    <div class="scene scene1">
-        <div class="airplane">✈️ Turagenstvo</div>
-    </div>
-    <div class="scene scene2">
-        <div class="ship">🚢 Turagenstvo</div>
-    </div>
-    <div class="scene scene3">
-        <div class="car">🚗 Turagenstvo</div>
-    </div>
-</div>
-    <script>
-    const scenes = document.querySelectorAll('.scene');
-    let currentScene = 0;
-
-    function showScene(index) {
-        scenes[index].style.display = 'flex';
-        setTimeout(() => {
-            scenes[index].style.display = 'none';
-            currentScene++;
-            if (currentScene < scenes.length) {
-                showScene(currentScene);
-            }
-        }, 4000); // Время анимации
-    }
-
-    showScene(currentScene);
-</script>
-</section>
 <article>
     <h3>Рекламные баннеры</h3>
     <img width="500px" src="https://ir-3.ozone.ru/s3/multimedia-5/c1000/6712082753.jpg">
@@ -47,9 +34,11 @@
          src="https://smmplanner.com/blog/content/images/2024/02/5-primer-bannera-s-horoshej-ierarhiej.jpg">
 </article>
 <h1>Hot tours</h1>
+
+<div class="tour-grid">
 {% for j in tours %}
 {% csrf_token %}
-<article>
+<div class="tour">
     <a href="/details/{{ j.name }}">
         <h1>{{ j.name }}</h1>
         <p>{{ j.country.name }}</p>
@@ -59,19 +48,23 @@
         <p>Name:{{ j.hotel.name }}</p>
         <p>Stars: {{ j.hotel.stars }}</p>
     </a>
-</article>
-<hr/>
+</div>
 {% endfor %}
+    </div>
 <h1>Our investors and partners</h1>
 {% for i in partners %}
-<h2><a href="{{ i.company_url }}">{{ i.name }}</a></h2>
+<div class="partner">
+<h2 class="company-name"><a href="{{ i.company_url }}">{{ i.name }}</a></h2>
 <img src="{{ i.logo_url }}" width="100px">
+    </div>
 {% endfor %}
 <hr>
+<div class="last-article">
 <h1>{{ article.title }}</h1>
 <p>{{ article.created_at }}</p>
 <p>{{ article.content }}</p>
 <img src="{{ article.img_url }}">
+</div>
 <hr/>
 <section>
     <h2>Листинг</h2>
@@ -83,9 +76,9 @@ def hello_world():
 <input type="color">
 <section>
     <p>One more example of <strong>semantic</strong> selection</p>
-    <p>One more example of <small>semantic</small> selection</p>
-    <p>One more example of <i>semantic</i> selection</p>
-    <p>One more example of <em>semantic</em> selection</p>
+    <p class="one">One more example of <small>semantic</small> selection</p>
+    <p class="one two">One more example of <i>semantic</i> selection</p>
+    <p class="one two three">One more example of <em>semantic</em> selection</p>
     <p>One more example of <s>semantic</s> selection</p>
     <p>One more example of <u>semantic</u> selection</p>
     <p>One more example of <sub>semantic</sub> selection</p>
@@ -94,8 +87,11 @@ def hello_world():
 <p>Сайт <abbr title="HyperText Markup Language">HTML</abbr> является основным языком разметки для создания веб-страниц.
 </p>
 <p><dfn>Aboba</dfn> — это lorem ipsum dolorem.</p>
-<blockquote cite="https://dzen.ru/a/ZRFaGN_gKhX6xTWW">
-    «Легче попой съесть арбуз, чем окончить этот вуз»
+<blockquote cite="https://dzen.ru/a/ZRFaGN_gKhX6xTWW" lang="en">
+    Легче попой съесть арбуз, чем окончить этот вуз
+</blockquote>
+<blockquote cite="https://dzen.ru/a/ZRFaGN_gKhX6xTWW" lang="ru">
+    Легче попой съесть арбуз, чем окончить этот вуз
 </blockquote>
 <p>Дата и время:
     <time datetime="2024-09-17T14:30">17 сентября 2024, 14:30</time>
@@ -113,7 +109,7 @@ def hello_world():
     Vestibulum tempus eget elit vitae semper.
 </pre>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+<p class="attribute-selector">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     <wbr>
     Aenean ullamcorper, sapien sit
     <wbr>
@@ -180,7 +176,7 @@ def hello_world():
 </figure>
 
 <nav>
-    <ul>
+    <ul class="custom-list">
         <li><a href="/home">1</a></li>
         <li><a href="/about">2</a></li>
         <li><a href="/news">3</a></li>
@@ -264,7 +260,21 @@ def hello_world():
     </tr>
     </tbody>
 </table>
+<hr>
+<input required type="text">
+<input disabled type="text">
+<input type="text">
+<input type="number" min="10" max="102">
+
+<h2>Флажки</h2>
+    <input type="checkbox" id="checkbox1">
+    <label for="checkbox1">Флажок 1</label><br>
+    <input type="checkbox" id="checkbox2">
+    <label for="checkbox2">Флажок 2</label><br>
+
 <h1>Fact:</h1>
 <p>{{ fact }}</p>
 <h5>Your ip: {{ ip }}</h5>
+
+<div class="loader"></div>
 {% endblock %}

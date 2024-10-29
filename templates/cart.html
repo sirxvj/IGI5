@@ -1,5 +1,8 @@
 {% extends 'layout.html' %}
-
+{% load static %}
+{% block extrahead %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/cart.css' %}">
+{% endblock %}
 {% block content %}
 <h1>Cart</h1>
 {% for j in cart_items %}

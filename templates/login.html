@@ -1,11 +1,14 @@
 {% extends 'layout.html' %}
-
+{% load static %}
+{% block extrahead %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+{% endblock %}
 {% block content %}
 <form method="POST" action="{% url 'login' %}">
                   {% csrf_token %}
                   <div class="form-group">
                       <label class="text-primary text-dark font-weight-bold">Enter phone</label>
-                      <input type="tel" class="form-control" name="phone" placeholder="Enter phone"  pattern="[\+]\d{12}" minlength="13" maxlength="18" required>
+                      <input type="tel" class="form-control" name="phone" placeholder="Enter phone"  pattern="[\+]\d{12}" minlength="13" maxlength="20" required>
                   </div>
 
                   <br>

@@ -169,7 +169,7 @@ class AboutCompany(models.Model):
     video_url = models.CharField(max_length=500)
     logo_url = models.CharField(max_length=500)
     email = models.CharField(max_length=50)
-    certificate = models.CharField(max_length=1000)
+    certificate = models.CharField(max_length=10000)
 
 class CompanyHistory(models.Model):
     year = models.IntegerField()

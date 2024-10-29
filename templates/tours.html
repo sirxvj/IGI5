@@ -1,5 +1,8 @@
 {% extends 'layout.html' %}
-
+{% load static %}
+{% block extrahead %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/tours.css' %}">
+{% endblock %}
 {% block content %}
     <h1>Tours</h1>
     <h3>Filter:</h3>
@@ -49,8 +52,9 @@
     </form>
 
     <hr/>
+    <div class="tour-grid">
     {% for j in tours %}
-        
+        <div class="tour">
          <form method="POST" action="{% url 'orders' %}">
          {% csrf_token %}
             <h1>{{ j.name }}</h1>
@@ -69,6 +73,7 @@
                 <button type="submit">Buy</button>
             {% endif %}
          </form>
-        <hr/>
+            </div>
     {% endfor %}
+        </div>
 {% endblock %}

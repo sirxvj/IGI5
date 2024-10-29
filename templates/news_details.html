@@ -1,10 +1,14 @@
 {% extends 'layout.html' %}
-
+{% load static %}
+{% block extrahead %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/news_details.css' %}">
+{% endblock %}
 {% block content %}
 
         <h1>{{ article.title }}</h1>
         <p>{{ article.created_at }}</p>
-        <p>{{ article.content }}</p>
+        <div></div>
+        <div class="multicol">{{ article.content }}</div>-->
         <img src="{{ article.img_url }}">
         <hr>
 {% endblock %}

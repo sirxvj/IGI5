@@ -1,13 +1,17 @@
 {% extends 'layout.html' %}
-
+{% load static %}
+{% block extrahead %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/news.css' %}">
+{% endblock %}
 {% block content %}
     {% for a in articles %}
 <section itemscope itemtype="https://schema.org/Article">
         <h1 itemprop="name">{{ a.title }}</h1>
         <p>{{ a.created_at }}</p>
-        <p>{{ a.content | slice:":100" }}</p>
-        <img itemprop="photo" src="{{ a.img_url }}">
+        <p class="news-content">{{ a.content }}</p>
         <a href="/news_details/{{a.title}}/">Read more</a>
+        <br>
+        <img itemprop="photo" src="{{ a.img_url }}">
         <hr>
     </section>
 <main></main>

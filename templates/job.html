@@ -1,14 +1,20 @@
 {% extends 'layout.html' %}
-
+{% load static %}
+{% block extrahead %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/job.css' %}">
+{% endblock %}
 {% block content %}
 <h1>Jobs</h1>
     <hr/>
     {% for j in jobs %}
+        <div class="float-job">
         <h1>{{ j.title }}</h1>
         <p>{{ j.salary }}$</p>
         <p>{{ j.date }}</p>
+        </div>
+        <div class="description">
         <h5>Job Description:</h5>
         <p>{{ j.description }}</p>
-        <hr/>
+        <hr/></div>
     {% endfor %}
 {% endblock %}

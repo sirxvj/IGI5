@@ -1,0 +1,401 @@
+img {
+    border: solid black 1px;
+    border-radius: 10px;
+}
+
+a[href^="https://"]{
+    background-color: green;
+}
+img[src$=".jpg"] {
+    border: 2px solid red;
+}
+
+p[dir="rtl"] {
+    background-color: aqua;
+}
+
+.tour {
+    border: 2px solid yellow;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.tour-grid{
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.one.two.three {
+    color: blue;
+    font-size: 20px;
+}
+a:link {
+    color: blue;
+}
+
+a:visited {
+    color: purple;
+}
+
+a:hover {
+    color:black;
+}
+
+a:active {
+    color: red;
+}
+
+li:first-child {
+    font-weight: bold;
+}
+
+li:last-child {
+    color: green;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+input:required {
+    background-color: red;
+}
+
+input:enabled {
+    border: 2px solid black;
+}
+
+input:disabled {
+    background-color: #e0e0e0;
+}
+
+input:valid {
+    border: 2px solid green;
+}
+
+input:invalid {
+    border: 2px solid orange;
+}
+
+
+blockquote[lang="ru"]::before {
+    content: "«";
+}
+
+blockquote[lang="ru"]::after {
+    content: "»";
+}
+
+blockquote[lang="en"]::before {
+    content: "“";
+}
+
+blockquote[lang="en"]::after {
+    content: "”";
+}
+
+input[type="checkbox"]:checked {
+    accent-color: green;
+}
+
+input[type="checkbox"]:checked + label {
+    font-weight: bold;
+}
+
+p.attribute-selector::first-letter {
+    font-size: 2em;
+    font-weight: bold;
+    color: red;
+}
+
+p.attribute-selector::before {
+    content: "Начало: ";
+    font-weight: bold;
+}
+
+p.attribute-selector::after {
+    content: " :Конец";
+    font-weight: bold;
+}
+
+ul.custom-list li::before {
+    content: "✦ ";
+    color: green;
+}
+
+::selection {
+    background-color: yellow;
+    color: black;
+}
+
+button {
+    cursor: pointer;
+}
+
+input[type="submit"]{
+    cursor: pointer;
+}
+
+input[type="button"]{
+    cursor: pointer;
+}
+
+p {
+    margin: 20px;
+    padding: 10px;
+    text-indent: 30px;
+    line-height: 1;
+    word-spacing: 3px;
+    letter-spacing: 1px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+h1 {
+    text-transform: uppercase;
+}
+
+h2 {
+    font-variant: small-caps;
+}
+
+.partner {
+    width:300px;
+    height: 300px;
+    border-radius: 50%;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.company-name{
+    font-family: Roboto;
+    font-kerning: normal;
+}
+
+.last-article{
+    position: relative;
+    top: 20px;
+    left: 20px;
+}
+
+.top-navigation{
+    position: fixed;
+    opacity: 0.9;
+}
+
+.first-element{
+    padding-bottom: 100px;
+}
+
+input[type="text"]{
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+input[type="radio"] {
+    margin-right: 5px;
+}
+
+input[type="radio"]:checked + label {
+    font-weight: bold;
+}
+
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 8px solid lightblue;
+  border-right-color: orange;
+  animation: l2 1s linear infinite;
+}
+@keyframes l2 {
+0%{
+        transform: rotate(0deg) scale(1);
+    }
+    50%{
+        transform: rotate(180deg) scale(0.5);
+    }
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+.scene{
+    overflow: hidden;
+    width: 100%;
+    height: 500px;
+    background-color: blue;
+    animation: bg 15s linear infinite;
+    background-size: cover;
+}
+
+@keyframes bg{
+    65%{
+        background-image: none;
+    }
+    66%{
+        background-image: url("/static/palms.jpg");
+    }
+    99%{
+        background-image: url("/static/palms.jpg");
+    }
+    100%{
+        background-image: none;
+    }
+}
+
+.anim-img{
+    border: none;
+}
+
+.plane-box{
+    position: relative;
+    animation: planefly 15s linear infinite;
+}
+
+.ship-box{
+    position: relative;
+    animation: ship-swim 15s linear infinite;
+}
+
+@keyframes planefly {
+        33% {
+            transform: translate(-2200px);
+        }
+        100%{
+            transform: translate(-2200px);
+        }
+    }
+
+    @keyframes ship-swim {
+        33% {
+            transform: translate(0px);
+        }
+        66%{
+            transform: translate(2000px);
+        }
+        100% {
+            transform: translate(2000px);
+        }
+    }
+
+
+.plane{
+    overflow: auto;
+    position: absolute;
+    top: 80px;
+    left: 1500px;
+}
+
+.man{
+    position: absolute;
+    top: 200px;
+    left: 1600px;
+    width: 100px;
+}
+
+.ship{
+    overflow: auto;
+    position: absolute;
+    top: 50px;
+    left: -500px;
+}
+
+.ship-man{
+    position: absolute;
+    top: 0px;
+    left: -400px;
+    width: 100px;
+    scale: -1 1;
+}
+
+.car{
+    width: 500px;
+}
+.car-man{
+    position: absolute;
+    top: -100px;
+    left: 100px;
+    width: 120px;
+    scale: -1 1;
+}
+
+.car-box{
+    
+    position: relative;
+    top: 600px;
+    left: 40%;
+    animation: car-ride 15s linear infinite;
+}
+
+@keyframes car-ride{
+    66%{
+        translate: 0px 0px;
+        scale: 1 1;
+    }
+    100%{
+        translate: -350px -450px;
+        scale: 0.3 0.3;
+    }
+}
+
+/* Оформление заголовка таблицы */
+table {
+    width: 100%; /* Занимает всю ширину контейнера */
+    border-collapse: collapse; /* Убирает двойные линии между ячейками */
+    margin: 20px 0; /* Отступы сверху и снизу */
+}
+
+/* Стилизация заголовков таблицы */
+thead th {
+    background-color: #007bff; /* Цвет фона заголовка */
+    color: white; /* Цвет текста заголовка */
+    text-align: center; /* Горизонтальное выравнивание по центру */
+    padding: 10px; /* Внутренние отступы */
+}
+
+/* Стилизация ячеек таблицы */
+td, th {
+    border: 1px solid #ccc; /* Рамка ячеек */
+    padding: 10px; /* Внутренние отступы */
+    vertical-align: middle; /* Вертикальное выравнивание по центру */
+    text-align: center; /* Горизонтальное выравнивание по центру */
+}
+
+/* Изменение фона пустых ячеек */
+td:empty {
+    background-color: #f89e9e; /* Цвет фона для пустых ячеек */
+}
+
+/* Стилизация строк таблицы */
+tr:nth-child(even) {
+    background-color: #8a8989; /* Цвет фона для четных строк */
+}
+
+tr:hover {
+    background-color: #f1f4ac; /* Цвет фона при наведении на строку */
+}
+
+/* Выравнивание таблицы на странице */
+.table-container {
+    max-width: 800px; /* Максимальная ширина контейнера */
+    margin: 0 auto; /* Центрирование таблицы */
+}

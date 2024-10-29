@@ -1,12 +1,18 @@
 {% extends 'layout.html' %}
-
+{% load static %}
+{% block extrahead %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/contacts.css' %}">
+{% endblock %}
 {% block content %}
 <h1>Contacts</h1>
+    <div class="contact-container">
     {% for emp in emps %}
+        <div class="employee">
         <h1>{{ emp.position }}</h1>
         <p>{{ emp.email }}</p>
         <p>{{ emp.phone }}</p>
-        <img src="{{ emp.img_url }}">
-        <hr/>
+        <img src="{{ emp.img_url }}" width="200">
+            </div>
     {% endfor %}
+        </div>
 {% endblock %}
