@@ -1,4 +1,4 @@
-
+/* 
 .contact-container{
     display: flex;
 }
@@ -9,4 +9,314 @@
     border-radius: 10px;
     padding: 10px;
     margin: 0px 10px;
+} */
+
+.employee-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.employee-card {
+    background-color: var(--color-secondary-background);
+    border: 1px solid var(--color-secondary-background);
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+@media (max-width: 1024px) {
+    .employee-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .employee-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+.employee-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.employee-image {
+    border-radius: 50%;
+    width: 100px; 
+    height: 100px; 
+    object-fit: cover; 
+}
+
+.personal-details h2 {
+    font-size: 1.5em;
+    color: var(--color-main-header);
+    margin: 0 0 10px;
+}
+
+.personal-details p {
+    margin: 5px 0;
+    color: var(--color-text);
+    line-height: 1.3;
+}
+
+.vacancy-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.vacancy-item {
+    border: 1px solid var(--color-secondary-background);
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: var(--color-secondary-background);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.vacancy-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.vacancy-item h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: var(--color-main-header);
+}
+
+.vacancy-item h3 {
+    font-weight: bold;
+    margin-top: 15px;
+    color: var(--color-secondary-header);
+}
+
+.vacancy-item p {
+    margin-bottom: 5px;
+    color: var(--color-text);
+}
+
+
+h1 {
+    text-align: center;
+    margin: auto;
+    padding-top: 20px;
+}
+
+.person {
+    border-radius: 20px;
+    border: 1px black solid;
+    padding: 20px;
+    margin: 30px;
+    padding: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    padding: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+    height: 250px;
+    background-color: var(--color-secondary-background);
+    color: var(--color-text);
+}
+
+thead tr {
+    background-color: var(--color-main-header);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+thead th {
+    padding: 12px;
+    border-bottom: 2px solid var(--color-secondary-background);
+    position: relative;
+}
+
+thead th.asc::after {
+    content: '▲'; /* Стрелка вверх (возрастание) */
+    position: absolute;
+    right: 10px;
+}
+
+thead th.desc::after {
+    content: '▼'; /* Стрелка вниз (убывание) */
+    position: absolute;
+    right: 10px;
+}
+
+tbody tr {
+    border-bottom: 1px solid var(--color-secondary-background);
+}
+
+tbody td {
+    padding: 10px;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #34495E; /* Darker background for even rows */
+}
+
+tbody tr:hover {
+    background-color: #2980B9; /* Highlight color on hover */
+}
+
+#searcher {
+    text-align: center;
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    width: 500px;
+}
+
+button {
+    padding: 10px 15px;
+    font-size: 16px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+#employee-details {
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: var(--color-secondary-background);
+}
+
+#addEmployeeBtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#addEmployeeBtn:hover {
+    background-color: #45a049;
+}
+
+.form-container {
+    display: none;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.form-container h3 {
+    text-align: center;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+form label {
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: #555;
+}
+
+form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-family: 'Arial', sans-serif;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus, form textarea:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+form button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+@media (max-width: 600px) {
+    .form-container {
+        width: 90%;
+    }
+
+    form label {
+        font-size: 12px;
+    }
+
+    form input, form textarea {
+        font-size: 14px;
+    }
+
+    form button {
+        font-size: 14px;
+    }
+}
+
+.form-container input.invalid {
+    border-color: red;
+    background-color: #ffe6e6;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin: 10px 0;
+    display: none;
+}
+
+.success-message {
+    color: green;
+    font-size: 14px;
+    margin: 10px 0;
+    display: none;
+}
+
+form button:disabled {
+    background-color: gray;
+    color: white;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+table img {
+    max-width: 100px;
+    max-height: 100px;
 }

@@ -2,6 +2,7 @@
 {% load static %}
 {% block extrahead %}
 <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/slider.css' %}">
 {% endblock %}
 {% block content %}
 {% csrf_token %}
@@ -21,6 +22,18 @@
         <img class="anim-img car" src="https://png.klev.club/uploads/posts/2024-04/png-klev-club-xebv-p-mashina-szadi-png-2.png" alt="">
     </div>
 </div>
+
+<div class="anim-wrapper" style="background-position: center; padding: 100px;background-origin: content-box;background-repeat: no-repeat; background-size: auto 100%; height:500px;background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Earth_Western_Hemisphere_transparent_background.png/1024px-Earth_Western_Hemisphere_transparent_background.png);">
+
+    <!-- <div class="earth-base" style="position: absolute;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Earth_Western_Hemisphere_transparent_background.png/1024px-Earth_Western_Hemisphere_transparent_background.png" alt="">
+    </div> -->
+    <div class="plane-rotate" style=" height: 100%; width:100%">
+        <img style="margin-left: 250px; transform: rotate(-45deg); border: 0px; height: 150px;width: 240px;" src="https://png.pngtree.com/png-vector/20231016/ourmid/pngtree-a-white-cargo-plane-providing-commercial-passenger-services-png-image_10291869.png" alt="">
+    </div>
+
+</div>
+
 
 <article class="company-logo">
     <h1>Логотип компании</h1>
@@ -51,6 +64,73 @@
 </div>
 {% endfor %}
     </div>
+
+<section class="banners-section">
+            <h2>Баннеры</h2>
+            <div class="slider">
+                <div class="slider-wrapper">
+                    <div class="slide">
+                      <a href="{% url "news" %}">
+                        <span class="counter"></span>
+                        <img src="{{ 'https://ir-3.ozone.ru/s3/multimedia-5/c1000/6712082753.jpg' }}" alt="Image 1">
+                        <span class="image-text">Text for ban1</span>
+                      </a>
+                    </div>
+                    <div class="slide">
+                      <a href="{% url "about" %}">
+                        <span class="counter"></span>
+                        <img src="{{ 'https://smmplanner.com/blog/content/images/2024/02/5-primer-bannera-s-horoshej-ierarhiej.jpg' }}" alt="Image 2">
+                        <span class="image-text">Text for ban2</span>
+                      </a>
+                    </div>
+                    <div class="slide">
+                      <a href="{% url "news" %}">
+                        <span class="counter"></span>
+                        <img src="{{ 'https://smmplanner.com/blog/content/images/2024/02/2-kreativnyj-banner-primer.jpg' }}" alt="Image 3">
+                        <span class="image-text">Text for ban3</span>
+                      </a>
+                    </div>
+                </div>
+                <button class="prev">&#10094;</button>
+                <button class="next">&#10095;</button>
+                <div class="pag">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+
+            {% if request.COOKIES.role != "none" %}
+                <form id="sliderSettings">
+                <h2>Настройки слайдера</h2>
+
+                <label>
+                  <input type="checkbox" id="allowCycle" checked> Разрешить цикличность прокрутки
+                </label><br>
+
+                <label>
+                  <input type="checkbox" id="showArrows" checked> Показать стрелки
+                </label><br>
+
+                <label>
+                  <input type="checkbox" id="showPagination" checked> Показать пагинатор
+                </label><br>
+
+                <label>
+                  <input type="checkbox" id="allowAutoScroll" checked> Разрешить автопрокрутку
+                </label><br>
+
+                <label>
+                  <input type="checkbox" id="allowHoverPause" checked> Останавливать прокрутку при наведении курсора
+                </label><br>
+
+                <label for="autoScrollTime">Время автопрокрутки (в секундах):</label>
+                <input type="number" id="autoScrollTime" value="5" min="1"><br>
+
+                <button type="button" id="applySettings">Применить</button>
+              </form>
+            {% endif %}
+        </section>
 <h1>Our investors and partners</h1>
 {% for i in partners %}
 <div class="partner">
@@ -277,4 +357,6 @@ def hello_world():
 <h5>Your ip: {{ ip }}</h5>
 
 <div class="loader"></div>
+<script src="{% static "scripts/slider.js" %}"></script>
+<script src="{% static "scripts/scroll.js" %}"></script>
 {% endblock %}

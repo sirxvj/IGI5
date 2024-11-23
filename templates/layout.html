@@ -62,11 +62,13 @@
      <li class="lit"><a href="/promo">Промокоды и купоны</a></li>
      <li class="lit"><a href="/stats">Статистика</a></li>
      <li class="lit"><a href="/cart">Корзина</a></li>
+     <li class="lit"><a href="/chart">Chart</a></li>
     {% if request.COOKIES.role != "none" %}
         <li class="lit"><a href="/edit">Редактировать профиль</a></li>
     {% endif %}
         <li class="lit"><a href="/login" >Logout</a></li>
     </ul>
+    <li><div id="countdown">Загрузка таймера...</div></li>
     </nav>
 <div class="first-element"></div>
 {% endblock %}
@@ -81,4 +83,5 @@
 </footer>
    {% endblock %}
 </body>
+<script src="{% static "scripts/timer.js" %}"></script>
 </html>

@@ -8,6 +8,7 @@ import requests
 import statistics
 from django.core.mail import message
 from django.db.models import Q, F, Avg, Count, Sum
+from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from matplotlib import pyplot as plt
 
@@ -125,9 +126,12 @@ def dick(request):
 
 
 def contacts(request):
-    emps = Employee.objects.all()
-    context = {'emps': emps}
-    return render(request, 'contacts.html',context)
+    doctors = list(
+        Employee.objects.all().values('id', 'first_name', 'surname', 'last_name', 'position', 'email',
+                                    'phone', 'img_url'))
+
+    data = {'emps': doctors}
+    return render(request, 'contacts.html', context=data)
 
 
 def policy(request):
@@ -338,3 +342,6 @@ def edit(request):
 def delete(request):
     User.objects.remove(phone=request.COOKIES.get('phone'))
     return redirect('login')
+
+def chart(request):
+    return render(request, 'chart.html')

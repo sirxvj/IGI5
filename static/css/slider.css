@@ -1,0 +1,89 @@
+.slider {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    overflow: hidden;
+}
+
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+  
+.slide {
+    min-width: 100%;
+    transition: 0.5s;
+    display: flex;
+}
+
+.slide a {
+    display: flex;
+    position: relative;
+}
+
+.slide img {
+    width: 400px;
+    height: 550px;
+    top: 50%;
+    display: block;
+}
+
+button.prev, button.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+.image-text {
+    position: absolute;
+    display: inline-block;
+    left: 0;
+    right: 0;
+    text-align: center;
+    bottom: 40px;
+    color: black;
+    font-size: 25px;
+}
+
+.counter {
+    position: absolute;
+    left: 40px;
+    text-align: center;
+    top: 40px;
+    color: black;
+    font-size: 25px;
+}
+
+.pag {
+    text-align: center;
+}
+
+.pag div {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.pag div:not(.active-dot) {
+    background-color: gray;
+}
+
+.active-dot {
+    background-color: rgb(190, 190, 190);
+}

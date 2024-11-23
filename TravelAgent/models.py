@@ -135,6 +135,9 @@ class Order(models.Model):
     createdAt = models.DateField(auto_now_add=True)
 
 class Employee(models.Model):
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    surname = models.CharField(max_length=50)
     position = models.CharField(max_length=50)
     phone_regex = RegexValidator(
         regex=r'\+\d{3} \(\d{2}\) \d{3}-\d{2}-\d{2}$',

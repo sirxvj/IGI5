@@ -48,4 +48,5 @@ urlpatterns = [
     path('stats/',views.stats,name='stats'),
     path('edit/',views.edit,name='edit'),
     path('delete/',views.delete,name='delete'),
+    path('chart/', views.chart, name='chart')
 ]

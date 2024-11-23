@@ -4,6 +4,14 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/news.css' %}">
 {% endblock %}
 {% block content %}
+<section>
+    <h2>Настройки стилей</h2>
+    <input type="checkbox" id="toggleDoors"> Скрыть анимацию скроллинга
+    <label>
+        <input type="checkbox" id="toggleStyleOptions"> Показать настройки стиля
+    </label>
+    <div id="styleOptionsContainer"></div>
+</section>
     {% for a in articles %}
 <section itemscope itemtype="https://schema.org/Article">
         <h1 itemprop="name">{{ a.title }}</h1>
@@ -16,4 +24,5 @@
     </section>
 <main></main>
     {% endfor %}
+    <script src="{% static "scripts/pageOptions.js" %}"></script>
 {% endblock %}

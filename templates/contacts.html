@@ -1,18 +1,136 @@
+
 {% extends 'layout.html' %}
-{% load static %}
+{% load static %} 
 {% block extrahead %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/contacts.css' %}">
-{% endblock %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contacts.css' %}">
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'loader.css' %}"> -->
+{% endblock extrahead %}
+
 {% block content %}
-<h1>Contacts</h1>
-    <div class="contact-container">
-    {% for emp in emps %}
-        <div class="employee">
-        <h1>{{ emp.position }}</h1>
-        <p>{{ emp.email }}</p>
-        <p>{{ emp.phone }}</p>
-        <img src="{{ emp.img_url }}" width="200">
-            </div>
-    {% endfor %}
+<section>
+    <h2>Проверка возраста</h2>
+    <input type="date" id="birthDate"/>
+    <p id="message"></p>
+    <button id="ageBtn">Проверить возраст</button>
+</section>
+    <section style="margin-bottom: 50px;">
+        <h1>Наш персонал</h1>
+        
+        <button id="addEmployeeBtn">Добавить сотрудника</button>
+
+        <div class="form-container" id="employeeFormContainer">
+            <h3>Добавить сотрудника</h3>
+            <form id="employeeForm">
+                <label for="last_name">Фамилия:</label>
+                <input type="text" id="last_name" name="last_name" required><br><br>
+
+                <label for="first_name">Имя:</label>
+                <input type="text" id="first_name" name="first_name" required><br><br>
+
+                <label for="surname">Отчество:</label>
+                <input type="text" id="surname" name="surname" required><br><br>
+                
+                <label for="photo">Фото:</label>
+                <input type="file" id="photo" name="photo" accept="image/*"><br><br>
+
+                <label for="position">Описание работы:</label>
+                <textarea id="position" name="position" required></textarea><br><br>
+
+                <label for="url">URL:</label>
+                <input type="text" id="url" name="url" required><br><br>
+
+                <label for="phone">Телефон:</label>
+                <input type="tel" id="phone" name="phone" required><br><br>
+
+                <label for="email">Почта:</label>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <button disabled id="submitBtn" type="submit">Добавить</button>
+            </form>
+
+            <p id="urlMessage" class="error-message">Неверный формат URL</p>
+            <p id="phoneMessage" class="error-message">Неверный формат номера телефона</p>
+            <p id="successMessage" class="success-message">Все данные введены корректно!</p>
         </div>
-{% endblock %}
+
+        <div id="searcher">
+            <input type="text" id="search-input" placeholder="Введите текст для поиска">
+            <button id="search-button">Найти</button>
+        </div>
+
+        <div class="loader" id="preloader"></div>
+
+        <table id="employee-list">
+            <thead>
+                <tr>
+                    <th data-column="image" data-order="desc">Фото</th>
+                    <th data-column="last_name" data-order="desc">Фамилия</th>
+                    <th data-column="first_name" data-order="desc">Имя</th>
+                    <th data-column="surname" data-order="desc">Отчество</th>
+                    <th data-column="position" data-order="desc">Должность</th>
+                    <th data-column="email" data-order="desc">Почта</th>
+                    <th data-column="phone" data-order="desc">Телефон</th>
+                    <th data-column="checkbox" data-order="desc">Премия</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <button id="bonusButton">Премировать</button>
+
+        <div class="pagination">
+            <button id="prevBtn">Предыдущая</button>
+            <span id="pageInfo">Страница 1</span>
+            <button id="nextBtn">Следующая</button>
+        </div>
+
+        <div id="employee-details" style="margin-top: 20px; font-weight: bold;"></div>
+
+        <div id="bonusInfo"></div>
+    </section>
+    <!-- {% comment %}  -->
+    <div class="trav-list">
+        {% for d in emps %}
+            <section class="employee-card">
+                <a href='{% url 'doctor_info' id=d.pk %}' style="text-decoration: none;">
+                    <div class="employee-info">
+                        <img src="{{d.img_url}}" alt="{{d.name}} {{d.surname}}" class="employee-image">
+                        <div class="personal-details">
+                            <h2>{{d.surname}} {{d.name}} {{d.last_name}}</h2>
+                            <p>Телефон: {{d.phone}}</p>
+                            <p>Электронная почта: {{d.email}}</p>
+                            <p>Специальность: {{d.position}}</p>
+                        </div>
+                    </div>
+                </a>
+            </section>
+        {% endfor %}
+    </div> 
+    <!-- {% endcomment %} -->
+    <h1>Export Analysis</h1>
+    <form id="exportForm">
+        <label for="product">Product Name:</label>
+        <input type="text" id="product" required><br>
+
+        <label for="country">Country:</label>
+        <input type="text" id="country" required><br>
+
+        <label for="volume">Volume (pcs):</label>
+        <input type="number" id="volume" required><br>
+
+        <button type="submit">Add Export</button>
+    </form>
+
+    <h2>Exports</h2>
+    <ul id="exportList"></ul>
+
+    <h2>Results</h2>
+    <div id="results"></div>
+
+    <script id="employees-data" type="application/json">{{ emps|json_script:"employeesData" }}</script>
+    <script src="{% static "scripts/staffScripts.js" %}"></script>
+    <script src="{% static "scripts/staffOrdering.js" %}"></script>
+    <script src="{% static "scripts/ageChecker.js" %}"></script>
+    <script src="{% static "scripts/task7.js" %}"></script>
+{% endblock content %}

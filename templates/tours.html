@@ -75,5 +75,11 @@
          </form>
             </div>
     {% endfor %}
+    <div class="pagination">
+        <button id="prev" class="page-button" disabled>Назад</button>
+        <div id="page-buttons"></div>
+        <button id="next" class="page-button">Вперед</button>
+    </div>
         </div>
+        <script src="{% static "scripts/toursPagination.js" %}"></script>
 {% endblock %}
